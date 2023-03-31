@@ -1,2 +1,2 @@
-# smol
+# Kilo
 A smol Text Editor

@@ -37,8 +37,8 @@ void enableRawMode() {
    * INPCK  - INPCK enables parity checking (doesn't apply to modern terminals).
    *          Traditionally done though for enabling raw mode
    * ISTRIP - causes the 8th bit of each input byte to be stripped, meaning it
-   * will set it to 0. Traditionally done though for enabling raw mode IXON   -
-   * to pause transmission (legacy stuff)
+   *          will set it to 0. Traditionally done though for enabling raw mode
+   * IXON   - to pause transmission (legacy stuff)
    */
   raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON);
   raw.c_oflag &= ~(OPOST); // disable all output processing
@@ -52,9 +52,9 @@ void enableRawMode() {
   raw.c_lflag &= ~(ECHO | ICANON | IEXTEN | ISIG);
 
   /**
-   * Next two lines set a timeout for the read() function
-   * VMIN  - minimum number of bytes of i/p needed before read() can return
-   * VTIME - maximum number of time to wait before read() returns
+   * Next two lines set a timeout for the read() function:
+   *    VMIN  - minimum number of bytes of i/p needed before read() can return
+   *    VTIME - maximum number of time to wait before read() returns
    */
   raw.c_cc[VMIN] = 0;
   raw.c_cc[VTIME] = 1;

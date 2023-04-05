@@ -1,3 +1,5 @@
 kilo
 .vscode/
 Makefile
+*.md
+!README.md
